@@ -1,5 +1,5 @@
 {
-  "name": "Zigbee2MQTT",
+  "name": "Zigbee2MQTT  HUB",
   "version": "2.1.0-1",
   "slug": "zigbee2mqtt",
   "description": "Use your ZigBee devices without the vendor's bridge or gateway",
