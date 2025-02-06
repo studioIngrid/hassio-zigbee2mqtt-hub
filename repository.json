@@ -1,5 +1,5 @@
 {
   "name": "Home Assistant Add-on: Zigbee2MQTT HUB",
-  "url": "https://github.com/studioIngrid/studioIngrid-hassio-zigbee2mqtt-hub",
+  "url": "https://github.com/studioIngrid/zigbee2mqtt",
   "maintainer": "studioIngrid <dev@studioilb.nl>"
 }
