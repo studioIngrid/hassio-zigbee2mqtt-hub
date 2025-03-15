@@ -18,9 +18,12 @@ jobs:
         run: |
           curl -o config.json https://raw.githubusercontent.com/zigbee2mqtt/hassio-zigbee2mqtt/master/zigbee2mqtt/config.json
 
-      - name: Modify config.json
+      - name: Modify config.json for hub
         run: |
           jq '.name = "Zigbee2MQTT HUB" | .slug = "zigbee2mqtt-hub"' config.json > temp1.json && mv temp1.json zigbee2mqtt-hub/config.json
+          
+      - name: Modify config.json for hub 2
+        run: |
           jq '.name = "Zigbee2MQTT HUB 2" | .slug = "zigbee2mqtt-hub2"' config.json > temp2.json && mv temp2.json zigbee2mqtt-hub2/config.json
 
       - name: Commit changes
