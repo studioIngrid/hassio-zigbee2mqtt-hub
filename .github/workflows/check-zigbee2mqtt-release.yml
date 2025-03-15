@@ -31,9 +31,7 @@ jobs:
 
       - name: Trigger Update Workflow
         if: env.TRIGGER == 'true'
-        uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: sync-zigbee2mqtt-config.yml
-          token: ${{ secrets.GITHUB_TOKEN }}
-          inputs: 
-            release_tag: ${{ env.LATEST_TAG }}
+        run: |
+          gh workflow run sync-zigbee2mqtt-config.yml -f release_tag="$LATEST_TAG"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
