@@ -20,16 +20,16 @@ jobs:
 
       - name: Modify config.json
         run: |
-          jq '.name = "Zigbee2MQTT HUB" | .slug = "zigbee2mqtt-hub"' config.json > temp.json && mv temp.json config.json
+          jq '.name = "Zigbee2MQTT HUB" | .slug = "zigbee2mqtt-hub"' config.json > temp1.json && mv temp1.json zigbee2mqtt-hub/config.json
+          jq '.name = "Zigbee2MQTT HUB 2" | .slug = "zigbee2mqtt-hub2"' config.json > temp2.json && mv temp2.json zigbee2mqtt-hub2/config.json
 
       - name: Commit changes
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          mkdir -p zigbee2mqtt-hub
-          mv config.json zigbee2mqtt-hub/config.json
           git add zigbee2mqtt-hub/config.json
-          git commit -m "Update config.json for new release"
+          git add zigbee2mqtt-hub2/config.json
+          git commit -m "Update config.json files for new release"
           git push
 
       - name: Create GitHub release
