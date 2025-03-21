@@ -25,7 +25,7 @@ jobs:
           echo "LAST_PROCESSED_TAG=$LAST_PROCESSED" >> $GITHUB_ENV
 
       - name: Compare Releases
-        if: env.LATEST_TAG != '' && env.LATEST_TAG != env.LAST_PROCESSED_TAG
+        if: env.LATEST_TAG != '' && env.LATEST_TAG != 'null' && env.LATEST_TAG != env.LAST_PROCESSED_TAG
         run: |
           echo "New release detected: $LATEST_TAG"
           echo "TRIGGER=true" >> $GITHUB_ENV
