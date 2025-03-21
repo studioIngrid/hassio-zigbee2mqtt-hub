@@ -12,7 +12,7 @@ jobs:
       - name: Get Latest Release from zigbee2mqtt/hassio-zigbee2mqtt
         id: check_release
         run: |
-          LATEST_RELEASE=$(curl -s https://api.github.com/repos/zigbee2mqtt/hassio-zigbee2mqtt/releases/latest | jq -r '.tag_name')
+          LATEST_RELEASE=$(curl -s https://api.github.com/repos/zigbee2mqtt/hassio-zigbee2mqtt/releases/latest | jq -r '.ta_name')
           echo "Latest release tag: $LATEST_RELEASE"
           echo "LATEST_TAG=$LATEST_RELEASE" >> $GITHUB_ENV
 
@@ -24,7 +24,7 @@ jobs:
           echo "LAST_PROCESSED_TAG=$LAST_PROCESSED" >> $GITHUB_ENV
 
       - name: Compare Releases
-        if: env.LATEST_TAG != env.LAST_PROCESSED_TAG
+        if: env.LATEST_TAG != '' && env.LATEST_TAG != env.LAST_PROCESSED_TAG
         run: |
           echo "New release detected: $LATEST_TAG"
           echo "TRIGGER=true" >> $GITHUB_ENV
