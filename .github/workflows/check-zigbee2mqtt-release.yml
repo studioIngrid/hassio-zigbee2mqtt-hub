@@ -15,6 +15,7 @@ jobs:
           LATEST_RELEASE=$(curl -s https://api.github.com/repos/zigbee2mqtt/hassio-zigbee2mqtt/releases/latest | jq -r '.ta_name')
           echo "Latest release tag: $LATEST_RELEASE"
           echo "LATEST_TAG=$LATEST_RELEASE" >> $GITHUB_ENV
+          echo "TRIGGER=false" >> $GITHUB_ENV
 
       - name: Get Last Processed Release
         id: get_last_release
