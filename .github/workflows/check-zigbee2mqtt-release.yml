@@ -30,6 +30,10 @@ jobs:
           echo "New release detected: $LATEST_TAG, last processed: $LAST_PROCESSED"
           echo "TRIGGER=true" >> $GITHUB_ENV
 
+      - name: Checkout repository
+        if: env.TRIGGER == 'true'
+        uses: actions/checkout@v3
+
       - name: Trigger Update Workflow
         if: env.TRIGGER == 'true'
         run: |
